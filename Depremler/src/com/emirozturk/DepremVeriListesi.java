@@ -21,4 +21,19 @@ public class DepremVeriListesi {
     public String nInciEleman(int i){
         return liste.get(i).toString();
     }
+    public int getElemanSayisi(){
+        return liste.size();
+    }
+    public void ekle(String kayit){
+        liste.add(0,new DepremVerisi(kayit));
+    }
+    public List<DepremVerisi> ara(float buyukluk,int kayitSayisi){
+        var sonucListesi = new ArrayList<DepremVerisi>();
+        for(var eleman:liste)
+            if(eleman.getBuyukluk() >= buyukluk){
+                sonucListesi.add(eleman);
+                if(sonucListesi.size() == kayitSayisi)break;
+            }
+        return sonucListesi;
+    }
 }

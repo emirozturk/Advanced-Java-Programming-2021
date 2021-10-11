@@ -25,4 +25,8 @@ public class DepremVerisi {
     public String toString() {
         return "%s %s %s %s".formatted(tarihSaat.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),lokasyon,buyukluk,cozumNiteligi);
     }
+
+    public float getBuyukluk() {
+        return buyukluk.getMl();
+    }
 }

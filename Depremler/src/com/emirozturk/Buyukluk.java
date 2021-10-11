@@ -12,4 +12,8 @@ public class Buyukluk {
     public String toString(){
         return "%2.3f %2.3f %2.3f".formatted(md,ml,mw);
     }
+
+    public float getMl() {
+        return ml;
+    }
 }

@@ -3,6 +3,7 @@ package com.emirozturk;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -40,9 +41,12 @@ public class Main {
         return sonuc.toString();
     }
     public static void ekle(DepremVeriListesi liste){
-
+        liste.ekle("1999.03.13 14:00:19  23.2323   53.5353        2.2      -.-  1.1  -.-   AKDENIZ                                           İlksel");
     }
     public static void ara(DepremVeriListesi liste){
-
+        List<DepremVerisi> sonuclar = liste.ara(3.0f,10);
+        for (var veri:sonuclar)
+            System.out.println(veri.toString());
+        System.out.println("--------------------------------");
     }
 }
