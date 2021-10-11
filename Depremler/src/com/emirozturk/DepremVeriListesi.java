@@ -18,4 +18,7 @@ public class DepremVeriListesi {
         }
         return new DepremVeriListesi(liste);
     }
+    public String nInciEleman(int i){
+        return liste.get(i).toString();
+    }
 }

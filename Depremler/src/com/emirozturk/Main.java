@@ -33,7 +33,11 @@ public class Main {
         }
     }
     public static String listele(DepremVeriListesi liste, int kayitSayisi){
-        return "";
+        StringBuilder sonuc = new StringBuilder();
+        for(int i=0;i<kayitSayisi;i++)
+            sonuc.append(liste.nInciEleman(i)).append("\n");
+        sonuc.append("---------------------------");
+        return sonuc.toString();
     }
     public static void ekle(DepremVeriListesi liste){
 
