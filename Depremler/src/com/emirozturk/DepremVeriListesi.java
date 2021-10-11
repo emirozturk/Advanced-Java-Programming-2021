@@ -34,6 +34,8 @@ public class DepremVeriListesi {
                 sonucListesi.add(eleman);
                 if(sonucListesi.size() == kayitSayisi)break;
             }
+        //return liste.stream().filter(x->x.getBuyukluk()>3).sorted().limit(kayitSayisi).toList(); Listeden en büyük ilk 10'u al
+        var results = liste.stream().map(DepremVerisi::toString);
         return sonucListesi;
     }
 }
