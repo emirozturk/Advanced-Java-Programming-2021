@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Advanced-Java-Programming-2021.iml" filepath="$PROJECT_DIR$/.idea/Advanced-Java-Programming-2021.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Depremler/Depremler.iml" filepath="$PROJECT_DIR$/Depremler/Depremler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IsinmaTestleri/IsinmaTestleri.iml" filepath="$PROJECT_DIR$/IsinmaTestleri/IsinmaTestleri.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OnYuzUygulama/OnYuzUygulama.iml" filepath="$PROJECT_DIR$/OnYuzUygulama/OnYuzUygulama.iml" />
+    </modules>
+  </component>
+</project>

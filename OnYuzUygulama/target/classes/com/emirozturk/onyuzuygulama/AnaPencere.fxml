@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="530.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.emirozturk.onyuzuygulama.HelloController">
+    <HBox>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+        <Label text="Tarih:">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="7.0"/>
+            </HBox.margin>
+        </Label>
+        <DatePicker fx:id="DpTarih" maxWidth="1.7976931348623157E308">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+            </HBox.margin>
+        </DatePicker>
+        <Label text="Saat:">
+            <HBox.margin>
+                <Insets bottom="3.0" left="11.0" right="3.0" top="7.0"/>
+            </HBox.margin>
+        </Label>
+        <TextField fx:id="TbSaat" maxWidth="1.7976931348623157E308">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+            </HBox.margin>
+        </TextField>
+        <Label text="E-B-D:">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="7.0"/>
+            </HBox.margin>
+        </Label>
+        <TextField fx:id="TbEbd" maxWidth="1.7976931348623157E308">
+            <HBox.margin>
+                <Insets bottom="3.0" left="50.0" right="3.0" top="3.0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <HBox>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+        <Label text="M Değerleri:">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="8.0"/>
+            </HBox.margin>
+        </Label>
+        <TextField fx:id="TbMDegerleri" maxWidth="1.7976931348623157E308">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+            </HBox.margin>
+        </TextField>
+        <Label text="Yer:">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="8.0"/>
+            </HBox.margin>
+        </Label>
+        <TextField fx:id="TbYer" maxWidth="1.7976931348623157E308">
+            <HBox.margin>
+                <Insets bottom="3.0" left="8.0" right="3.0" top="3.0"/>
+            </HBox.margin>
+        </TextField>
+        <Label text="Çözüm Niteliği:">
+            <HBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="8.0"/>
+            </HBox.margin>
+        </Label>
+        <TextField fx:id="TbCozumNiteligi" maxWidth="1.7976931348623157E308">
+            <HBox.margin>
+                <Insets bottom="3.0" left="5.0" right="3.0" top="3.0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <HBox>
+        <VBox.margin>
+            <Insets/>
+        </VBox.margin>
+        <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+        </padding>
+        <Button fx:id="BtnEkle" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                onAction="#BtnEkleOnAction" text="Ekle" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </HBox.margin>
+        </Button>
+        <Button fx:id="BtnAra" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                onAction="#BtnAraOnAction" text="Ara" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </HBox.margin>
+        </Button>
+    </HBox>
+    <AnchorPane maxHeight="1.7976931348623157E308">
+        <ListView fx:id="LbListe" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+    </AnchorPane>
+</VBox>
+
