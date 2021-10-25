@@ -27,6 +27,17 @@ public class DepremVeriListesi {
     public void ekle(String kayit){
         liste.add(0,new DepremVerisi(kayit));
     }
+    public void ekrandanEkle(String kayit) {
+        liste.add(0, new DepremVerisi(kayit.replace("-",".")));
+    }
+    public List<String> ara(String yer) {
+        var sonucListesi = new ArrayList<String>();
+        for(var eleman:liste)
+            if(eleman.getYer().contains(yer))
+                sonucListesi.add(eleman.toString());
+        return sonucListesi;
+    }
+
     public List<DepremVerisi> ara(float buyukluk,int kayitSayisi){
         var sonucListesi = new ArrayList<DepremVerisi>();
         for(var eleman:liste)
@@ -37,5 +48,11 @@ public class DepremVeriListesi {
         //return liste.stream().filter(x->x.getBuyukluk()>3).sorted().limit(kayitSayisi).toList(); Listeden en büyük ilk 10'u al
         var results = liste.stream().map(DepremVerisi::toString);
         return sonucListesi;
+    }
+    public List<String> listeAl(){
+        ArrayList<String> elemanlar = new ArrayList<String>();
+        for(var eleman:liste)
+            elemanlar.add(eleman.toString());
+        return elemanlar;
     }
 }

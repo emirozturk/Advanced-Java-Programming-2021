@@ -14,4 +14,5 @@ public class Lokasyon {
     public String toString(){
         return "%2.3f %2.3f %2.3f %20s".formatted(enlem,boylam,derinlik,yer);
     }
+    public String getYer(){return yer;}
 }
