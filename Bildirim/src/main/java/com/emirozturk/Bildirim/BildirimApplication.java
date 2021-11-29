@@ -4,6 +4,9 @@ import com.emirozturk.Bildirim.DAO.ChannelRepository;
 import com.emirozturk.Bildirim.DAO.UserRepository;
 import com.emirozturk.Bildirim.Entity.Channel;
 import com.emirozturk.Bildirim.Entity.User;
+import com.emirozturk.Bildirim.Service.ChannelService;
+import com.emirozturk.Bildirim.Service.LoginService;
+import com.emirozturk.Bildirim.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,42 +18,29 @@ import java.util.List;
 
 @SpringBootApplication
 public class BildirimApplication implements CommandLineRunner {
-	UserRepository userRepository;
-	ChannelRepository channelRepository;
-	public BildirimApplication(UserRepository userRepository,ChannelRepository channelRepository){
-		this.userRepository = userRepository;
-		this.channelRepository = channelRepository;
+	private final UserService userService;
+	private final LoginService loginService;
+	private final ChannelService channelService;
+	public BildirimApplication(UserService userService,LoginService loginService,ChannelService channelService){
+		this.userService = userService;
+		this.loginService = loginService;
+		this.channelService = channelService;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(BildirimApplication.class, args);
 	}
 
+	void printList(List list){
+		for(var element:list)
+			System.out.println(element);
+	}
 	@Override
 	public void run(String... args) throws Exception {
-		/*
-		User yeniKullanici = new User(null,"emirozturk@trakya.edu.tr","Emir Öztürk","123"
-				,true,null,null);
-		User ikinciKullanici = new User(null,"berdanakbulut@trakya.edu.tr","Berdan Akbulut","1234"
-				,true,null,null);
-		List<User> users = new ArrayList<>();
-		users.add(yeniKullanici);
-		users.add(ikinciKullanici);
-		userRepository.saveAll(users);
-		var result = userRepository.findAll();
-		for(var record : result)
-			System.out.println(record);
-		var result = userRepository.findByMail("emirozturk@trakya.edu.tr");
-		System.out.println(result);
-		userRepository.delete(result);
-				User yeniKullanici = new User(null,"emirozturk@trakya.edu.tr","Emir Öztürk","123"
-				,true,null,null);
-		userRepository.save(yeniKullanici);
-		var result = userRepository.findAll();
-		var channel = new Channel(null,"Arıza destek", LocalDateTime.now(),yeniKullanici,result,null);
-		channelRepository.save(channel);
-		*/
-		var user = userRepository.findByMail("emirozturk@trakya.edu.tr");
-		var result = channelRepository.findByNameAndOwner("Arıza destek",user);
-		System.out.println(result);
+		var user = loginService.checkLogin("emirozturk@trakya.edu.tr","123");
+		var channel = channelService.getAllChannels().get(0);
+		var newUser = userService.addChannelToUser(channel,user);
+		System.out.println(newUser);
+		var userFromDb = userService.getUserByMail("emirozturk@trakya.edu.tr");
+		System.out.println(userFromDb);
 	}
 }

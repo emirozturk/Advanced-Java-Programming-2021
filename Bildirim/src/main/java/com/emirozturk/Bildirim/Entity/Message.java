@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Getter
@@ -15,6 +16,8 @@ import java.time.LocalDateTime;
 public class Message {
     @Id
     private String id;
+    @NotNull
     private LocalDateTime postDateTime;
+    @NotNull
     private String content;
 }

@@ -7,6 +7,8 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,8 +20,12 @@ import java.util.List;
 public class Channel {
     @Id
     private String id;
+    @NotNull
+    @Min(2)
     private String name;
+    @NotNull
     private LocalDateTime CreationDate;
+    @NotNull
     private User owner;
     private List<User> users;
     private List<Message> messages;
