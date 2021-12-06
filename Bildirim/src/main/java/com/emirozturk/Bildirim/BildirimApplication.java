@@ -17,30 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class BildirimApplication implements CommandLineRunner {
-	private final UserService userService;
-	private final LoginService loginService;
-	private final ChannelService channelService;
-	public BildirimApplication(UserService userService,LoginService loginService,ChannelService channelService){
-		this.userService = userService;
-		this.loginService = loginService;
-		this.channelService = channelService;
-	}
+public class BildirimApplication{
 	public static void main(String[] args) {
 		SpringApplication.run(BildirimApplication.class, args);
-	}
-
-	void printList(List list){
-		for(var element:list)
-			System.out.println(element);
-	}
-	@Override
-	public void run(String... args) throws Exception {
-		var user = loginService.checkLogin("emirozturk@trakya.edu.tr","123");
-		var channel = channelService.getAllChannels().get(0);
-		var newUser = userService.addChannelToUser(channel,user);
-		System.out.println(newUser);
-		var userFromDb = userService.getUserByMail("emirozturk@trakya.edu.tr");
-		System.out.println(userFromDb);
 	}
 }

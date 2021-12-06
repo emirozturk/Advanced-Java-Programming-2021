@@ -41,7 +41,7 @@ public class ChannelServiceImpl implements ChannelService {
 
     @Override
     public List<Channel> getAllChannels() {
-        return channelRepository.findById();
+        return channelRepository.findAll();
     }
 
     @Override

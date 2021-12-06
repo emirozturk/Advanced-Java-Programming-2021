@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -39,11 +40,11 @@ public class UserServiceImpl implements UserService {
     public User updateUser(User user) {
         var foundUser = userRepository.findByMail(user.getMail());
         if(foundUser!=null){
-            foundUser.setName(user.getName());
-            foundUser.setPassword(user.getPassword());
-            foundUser.setEnabled(user.getEnabled());
-            foundUser.setChannels(user.getChannels());
-            foundUser.setRoles(user.getRoles());
+            if(user.getName()!=null) foundUser.setName(user.getName());
+            if(user.getPassword()!=null) foundUser.setPassword(user.getPassword());
+            if(user.getEnabled()!=null) foundUser.setEnabled(user.getEnabled());
+            if(user.getChannels()!=null) foundUser.setChannels(user.getChannels());
+            if(user.getRoles()!=null) foundUser.setRoles(user.getRoles());
             userRepository.save(foundUser);
         }
         return foundUser;
@@ -64,8 +65,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User addChannelToUser(Channel channel, User user) {
+        if(user.getChannels()==null)
+            user.setChannels(new ArrayList<>());
          user.getChannels().add(channel);
-         //BURADA VERİTABANINA YAZMA KISMI EKLENECEK
+         userRepository.save(user);
          return user;
+    }
+
+    @Override
+    public String deleteUser(String mail) {
+        try{
+            var user = userRepository.findByMail(mail);
+            userRepository.delete(user);
+            return "Success";
+        }
+        catch (Exception ex){
+            return ex.getMessage();
+        }
     }
 }
