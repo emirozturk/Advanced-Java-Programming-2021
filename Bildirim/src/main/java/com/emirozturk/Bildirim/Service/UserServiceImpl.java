@@ -83,4 +83,9 @@ public class UserServiceImpl implements UserService {
             return ex.getMessage();
         }
     }
+
+    @Override
+    public User findById(String userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
 }
