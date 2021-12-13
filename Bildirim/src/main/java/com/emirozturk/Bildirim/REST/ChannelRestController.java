@@ -50,7 +50,7 @@ public class ChannelRestController {
     @PutMapping("/Channel/{channelId}")
     Response<Channel> updateChannel(@RequestBody Channel newChannel,@PathVariable String channelId){
         try{
-            return new Response<Channel>(true,null,channelService.updateChannel(channelId,newChannel)));
+            return new Response<Channel>(true,null,channelService.updateChannel(channelId,newChannel));
         }
         catch (Exception ex){
             return new Response<>(false,ex.getMessage(),null);
